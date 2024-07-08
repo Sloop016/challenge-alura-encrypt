@@ -1,5 +1,3 @@
-
-//#region Declaraciones de variables y funciones
 let textoSinEncriptar = '';
 let textoEncriptado = '';
 let textoADesencriptar = '';
@@ -16,8 +14,6 @@ function containsUppercase(str) {
 
 function containsInvalidChar(caracteres){
     return caracterInvalido.test(caracteres)
-
-    // (caracterInvalido.test(caracteres))
   }
 
 function validaEncriptacion(caracteres) {
@@ -29,23 +25,11 @@ function mostrarTexto(texto) {
 document.getElementById("contenidoEncriptado").innerHTML = textoAMostrar;
 }
 
-//#endregion fin de las declaraciones de variables y funciones
-
-
-
-//#region Funciones operativas
 function encriptarTexto() {
 
     textoSinEncriptar = document.getElementById("textoAEncriptar").value;
-    // valorPlaceholder = document.getElementById("textoAEncriptar").placeholder;
-    
-
     if (textoSinEncriptar.length == '' ) {
-        
-        // console.log("SE EJECUTA LA VALIDACIÓN")
-        
         document.getElementById("textoAEncriptar").placeholder = errorCharVacio;
-    //    textoSinEncriptar = ''
     }
 
     else {
@@ -56,7 +40,7 @@ function encriptarTexto() {
         }
 
         else {
-
+//Remplazos de texto
     textoSinEncriptar = textoSinEncriptar.replaceAll("e","enter")
     textoSinEncriptar = textoSinEncriptar.replaceAll("i","imes")
     textoSinEncriptar = textoSinEncriptar.replaceAll("a","ai")
@@ -65,14 +49,11 @@ function encriptarTexto() {
 
     mostrarTexto(textoSinEncriptar);
 
-    // document.getElementById("textoAEncriptar").value = ''
-//Oculta la imagen y letras del cuadro y muestra el texto encriptado
     document.getElementById("contenidoCaja").style.display = "none"
     document.getElementById("verContenidoEncriptado").style.display ="block"
 
     }
 }
-
 }
 
 function desencriptarTexto() {
@@ -81,10 +62,7 @@ function desencriptarTexto() {
 
     if (textoADesencriptar.length == '') {
         
-        // console.log("SE EJECUTA LA VALIDACIÓN")
-        
         document.getElementById("textoAEncriptar").placeholder = errorCharVacio;
-    //    textoSinEncriptar = ''
     }
 
     else {
@@ -117,11 +95,8 @@ function copiarTextoEncriptado() {
     navigator.clipboard.writeText(textoAMostrar)
     .then(() => {
         console.log('Contenido copiado al portapapeles');
-        /* Resuelto - texto copiado al portapapeles con éxito */
       },() => {
         console.error('Error al copiar');
-        /* Rechazado - fallo al copiar el texto al portapapeles */
       });
 
 }
-//#endregion fin de las funciones operativas
